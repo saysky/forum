@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.forum.mapper.CommentMapper">
+    <select id="findLatestCommentByLimit" resultType="com.example.forum.entity.Comment">
+        SELECT
+            id,
+            post_id,
+            comment_content,
+            comment_parent,
+            user_id,
+            path_trace,
+            accept_user_id,
+            like_count,
+            dislike_count,
+            create_time
+        FROM
+            comment
+        WHERE
+             del_flag = 0
+        ORDER BY
+            create_time DESC
+            LIMIT #{limit}
+    </select>
+
+    <delete id="deleteByUserId">
+       DELETE
+       FROM
+           comment
+       WHERE
+           user_id = #{value}
+            AND del_flag = 0
+    </delete>
+
+    <delete id="deleteByAcceptUserId">
+       DELETE
+       FROM
+           comment
+       WHERE
+           accept_user_id = #{value}
+            AND del_flag = 0
+    </delete>
+
+    <select id="getLatestCommentByIP" resultType="com.example.forum.entity.Comment">
+        SELECT
+            id,
+            post_id,
+            comment_content,
+            comment_parent,
+            user_id,
+            path_trace,
+            accept_user_id,
+            create_time
+        FROM
+            comment
+        WHERE
+            comment_author_ip = #{value}
+             AND del_flag = 0
+        ORDER BY
+            id DESC
+            LIMIT 1
+    </select>
+
+
+    <select id="selectChildCommentIds" resultType="java.lang.Long">
+        SELECT
+            id
+        FROM
+            comment
+        WHERE
+            path_trace LIKE CONCAT('%',#{pathTrace},'%')
+             AND del_flag = 0
+    </select>
+
+    <select id="getLatestCommentByAcceptUser" resultType="com.example.forum.entity.Comment">
+        SELECT
+            id,
+            comment_content,
+            create_time
+        FROM
+            comment
+        WHERE
+            accept_user_id = #{userId}
+             AND del_flag = 0
+        ORDER BY
+            create_time DESC
+            LIMIT #{limit}
+    </select>
+
+
+</mapper>

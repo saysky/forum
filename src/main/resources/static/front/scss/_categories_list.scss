@@ -1,0 +1,101 @@
+.tt-categories-title{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e7ea;
+    margin-bottom: 30px;
+    .tt-title{
+        color: $default_color_title;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+    }
+    .tt-search{
+        width: 255px;
+    }
+}
+.tt-categories-list{
+    .tt-item{
+        background-color: #ffffff;
+        border-radius:3px;
+        .tt-item-header{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-content: center;
+            align-items: center;
+            padding-bottom: 21px;
+            .tt-title{
+                color: $default_color2;
+                font-size: 14px;
+                line-height: 26px;
+                margin-bottom: 0;
+                font-weight: 400;
+                a{
+                    color: $default_color2;
+                    transition: color .2s linear;
+                    &:hover{
+                        color: $default_color;
+                    }
+                }
+            }
+        }
+        .tt-item-layout{
+            .tt-title{
+                font-size: 14px;
+                line-height: 26px;
+                color: $default_color2;
+                font-weight: 700;
+                margin-bottom: 6px;
+            }
+            .innerwrapper{
+                letter-spacing: 0.01em;
+                &:not(:first-child){
+                    margin-top: 12px;
+                }
+            }
+            .tt-btn-icon{
+               margin-top: 19px;
+               padding-left: 0;
+               padding-bottom: 0;
+               height: auto;
+               svg{
+                    width: 20px;
+                    height: 18px;
+               }
+            }
+        }
+    }
+    @media (min-width: 576px){
+        margin-top: -30px;
+        .tt-item{
+            padding: 30px;
+            margin-top: 30px;
+        }
+    }
+    @media (max-width: 575px){
+        margin-top: -20px;
+        .tt-item{
+            padding: 20px;
+            margin-top: 20px;
+            .tt-item-header{
+                padding-bottom: 11px;
+            }
+            .tt-item-layout{
+                .innerwrapper{
+                    &:not(:first-child){
+                        margin-top: 2px;
+                    }
+                }
+                .tt-btn-icon{
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+}

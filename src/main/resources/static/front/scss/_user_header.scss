@@ -1,0 +1,86 @@
+/*
+    user-header(*page-single-user.html)
+*/
+.tt-user-header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    padding: 29px 0 29px 15px;
+    .tt-col-avatar{
+    	padding-left: 15px;
+	    padding-right: 15px;
+	    width: 8.33333%;
+		.tt-icon{
+			width: 40px;
+			height: 40px;
+            @media (max-width: 575px){
+                width: 30px;
+                height: 30px;
+            }
+		}
+        @media (max-width: 991px){
+            width: 10.33333%;
+        }
+        @media (max-width: 767px){
+            width: 12.33333%;
+            min-width: 50px;
+        }
+
+    }
+    .tt-col-title{
+    	display: flex;
+	    flex-direction: row;
+	    flex-wrap: nowrap;
+	    justify-content: flex-start;
+	    align-content: center;
+	    align-items: center;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    	flex: 2 1 auto;
+    	.tt-title{
+    		color: #182730;
+			font-weight: 600;
+    		a{
+    			color: #182730;
+    			transition: color 0.2s linear;
+    			&:hover{
+    				color: #2172cd;
+    			}
+    		}
+    	}
+    	> *:not(:first-child){
+    		margin-left: 15px;
+    	}
+    }
+    .tt-btn-icon{
+        svg{
+            width: 18px;
+            height: 18px;
+        }
+    }
+     @media (min-width: 768px){
+        .btn{
+            min-width: 110px;
+        }
+    }
+    @media (max-width: 767px){
+        flex-wrap: wrap;
+        .tt-col-btn{
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+            .tt-btn-icon{
+                padding-left: 0;
+            }
+         }
+    }
+    @media (max-width: 1024px){
+        >[class^=tt-col] {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+/*
+    Gallery
+ */
+.tt-gallery-layout{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: flex-start;
+    @media (min-width: 1025px){
+        margin-top: -30px;
+        margin-left: -30px;
+        .tt-item{
+            margin-top: 30px;
+            margin-left: 30px;
+            width: calc(33.333% - 30px);
+        }
+    }
+    @media (max-width: 1024px){
+        margin-top: -20px;
+        margin-left: -20px;
+        .tt-item{
+            margin-top: 20px;
+            margin-left: 20px;
+            width: calc(33.333% - 20px);
+        }
+    }
+    @media (max-width: 470px){
+        .tt-item{
+            width: calc(50% - 20px);
+        }
+    }
+}
+.tt-gallery-obj{
+    display: block;
+    position: relative;
+    transition: all 0.3s linear;
+    img{
+        width: 100%;
+        height: auto;
+    }
+    &:before{
+        content: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMy4wLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTQ0IDkwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNDQgOTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNmZmZmZmY7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik03MiwwQzMyLjI0LDAsMCwzNiwwLDQ1czMyLjI0LDQ1LDcyLDQ1czcyLTM2LDcyLTQ1UzExMS43NiwwLDcyLDB6IE03Miw3MmMtMTQuOTEsMC0yNy0xMi4wOS0yNy0yNw0KCWMwLTE0LjkxLDEyLjA5LTI3LDI3LTI3YzE0LjkxLDAsMjcsMTIuMDksMjcsMjdDOTksNTkuOTEsODYuOTEsNzIsNzIsNzJ6Ii8+DQo8L3N2Zz4NCg==');
+        display: block;
+        top: 50%;
+        left: 50%;
+        margin-top: -13px;
+        margin-left: -20px;
+        width: 40px;
+        height: 25px;
+        position: absolute;
+        display: block;
+        transition: all 0.1s linear;
+        pointer-events: none;
+    }
+    @media (min-width: 1025px){
+        &:before{
+            transform: scale(0);
+        }
+        &:hover{
+            &:before{
+                transform: scale(1);
+            }
+        }
+    }
+}

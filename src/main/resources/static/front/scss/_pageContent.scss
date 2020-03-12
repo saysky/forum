@@ -1,0 +1,24 @@
+#tt-pageContent{
+    &:not([class^="tt-offset"]){
+        padding-top:100px;
+    }
+    &.tt-offset-small{
+        padding-top: 70px;
+    }
+    @media (max-width: 575px){
+    	.container[class^="tt-custom-"]{
+    		padding-left: 0;
+    		padding-right: 0;
+    	}
+    }
+    p{
+    	margin-bottom: 26px;
+    }
+    p:last-child{
+    	margin-bottom: 0;
+    }
+    .container.tt-custom-mobile-indent{
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+}

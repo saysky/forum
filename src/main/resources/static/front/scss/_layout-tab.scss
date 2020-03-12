@@ -1,0 +1,185 @@
+.tt-layout-tab{
+    letter-spacing: 0.01em;
+    .tt-title{
+        color: $default_color_title;
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 600;
+        padding: 0 0 0px 0;
+        margin-bottom: -1px;
+        &:not(:first-child){
+            margin-top: 28px;
+        }
+        &.tt-size-lg{
+            font-size: 18px;
+            line-height: 28px;
+            padding-bottom: 29px;
+        }
+    }
+    .table-responsive{
+        margin-top: 15px;
+    }
+    .tt-indent-top{
+        margin-top: 38px;
+    }
+}
+.table-01{
+    width: 100%;
+    caption{
+        color: $default_text;
+        font-size: 16px;
+        line-height: 1.1;
+        font-weight:600;
+        caption-side: top;
+        margin: 0;
+        padding-top: 0;
+    }
+    tr{
+        th{
+            color: $default_text;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.1;
+            padding: 12px 0 25px;
+        }
+        td{
+            color: #666f74;
+            font-size: 16px;
+            line-height: 1.1;
+            padding: 27px 0;
+            padding-right: 5px;
+            &:first-child{
+                color: $default_text;
+                font-weight: 500;
+                padding-left: 30px;
+                width: 28%;
+            }
+            &:not(:first-child){
+                width: 24%;
+            }
+        }
+    }
+    @media (min-width: 768px){
+        caption{
+            padding-left: 30px;
+        }
+        tr{
+            th{
+                &:first-child{
+                    padding-left: 30px;
+                }
+            }
+            td{
+                &:first-child{
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+    @media (max-width: 767px){
+        caption{
+            padding-left: 20px;
+        }
+        tr{
+            th{
+                &:first-child{
+                    padding-left: 20px;
+                }
+            }
+            td{
+                &:first-child{
+                    padding-left: 20px;
+                }
+            }
+        }
+    }
+}
+.table-zebra{
+    tr{
+        &:nth-child(even){
+            background-color: #ffffff;
+        }
+        &:nth-child(odd){
+            background-color: $default_color3;
+        }
+    }
+}
+/* list avatar */
+.tt-list-avatar{
+    margin-top: -7px;
+    .tt-avatar{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: center;
+        align-items: center;
+        margin-top: 24px;
+        .tt-col-icon{
+            .tt-icon{
+                width: 40px;
+                height: 40px;
+            }
+            + .tt-col-description{
+                margin-left: 30px;
+            }
+        }
+        .tt-col-description{
+            .tt-title{
+                color: $default_color2;
+                font-size: 16px;
+                line-height: 1.1;
+                position: relative;
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+                &:before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0px;
+                    width: 0%;
+                    height: 1px;
+                    margin: auto;
+                    left: 0;
+                    right: 0;
+                    background-color: $default_color2;
+                    -webkit-transition: width .2s linear;
+                    transition: width .2s linear;
+                }
+            }
+            .tt-value{
+                color: #666f74;
+                font-size: 14px;
+                line-height: 1.1;
+                margin-top: 3px;
+            }
+            *:nth-child(1){
+                margin-top: 0;
+            }
+        }
+        &:hover{
+            .tt-title{
+                &:before{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    @media (max-width: 767px){
+        .tt-avatar{
+            .tt-col-icon{
+                + .tt-col-description{
+                    margin-left: 25px;
+                }
+            }
+        }
+    }
+    @media (max-width: 400px){
+        [class^=col]{
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+}

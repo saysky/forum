@@ -1,0 +1,97 @@
+/*---------------------------------------*/
+/*--------   Table of contents   --------*/
+/*
+1. External module
+	1.1 Bootstrap
+	1.2 Magnific Popup
+	1.3 Perfect scrollbar
+	1.4 Form
+	1.5 typography
+2. Header
+3. Page Content
+	3.1 Basic settings for page content
+	3.2 Topic list item
+	3.3 Single Topic
+	3.4 Badge
+	3.5 Modal
+	3.6 Popup Settings
+	3.7 User header
+	3.8 Default Tabs
+	3.9 Editor
+	3.10 Gallery
+	3.11 Login
+	3.12 Categories List
+	3.13 Categories Singles
+	3.14 Layout Tab
+	3.15 Layout404
+	3.16 Followers List
+	3.17 Messages Layout
+	3.18 Create Topic
+---------------------------------------*/
+/* Colors */
+$default_color:                                     #2172cd;
+$default_color2:                                    #182730;
+$default_color3:                                    #f2f4f6;
+$default_color_title:								#303344;
+$default_color_title_hover:							$default_color;
+$default_text:										#303344;
+$border:                                            #666f74;
+$border02:                                          #e2e7ea;
+/*-------  1.1 Bootstrap  --------*/
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+/*-------  1.2 Magnific Popup  --------*/
+@import "../../node_modules/magnific-popup/dist/magnific-popup.css";
+@import "_custom_magnific_popup";
+/*-------  1.3 Perfect scrollbar  --------*/
+@import "../external/perfect-scrollbar/perfect-scrollbar.scss";
+/*-------  1.4 Form  --------*/
+@import "_form";
+/*-------  1.5 typography  --------*/
+@import "_typography";
+/*---------------------------------------*/
+/*--------     2. Header         --------*/
+/*---------------------------------------*/
+@import "_header";
+@import "_header_objects";
+@import "_mobile-menu";
+/*---------------------------------------*/
+/*--------   3. Page Content     --------*/
+/*---------------------------------------*/
+/*-------  3.1 Basic settings for page content  --------*/
+@import "_pageContent";
+/*-------  3.2 Topic list item                  --------*/
+@import "_topic_list_item";
+/*-------  3.3 Single Topic                     --------*/
+@import "_single-topic";
+/*-------  3.4 Badge                            --------*/
+@import "_badge";
+/*-------  3.5 Modal                            --------*/
+@import "_modal";
+/*-------  3.6 Popup Settings                   --------*/
+@import "_popup_settings";
+/*-------  3.7 User header                      --------*/
+@import "_user_header";
+/*-------  3.8 Default Tabs                     --------*/
+@import "_default_tabs";
+/*-------  3.9 Editor  ---                         -----*/
+@import "_editor";
+/*-------  3.10 Gallery                         --------*/
+@import "_gallery";
+/*-------  3.11 Login                           --------*/
+@import "_login";
+/*-------  3.12 Categories List                 --------*/
+@import "_categories_list";
+/*-------  3.13 Categories Singles               --------*/
+@import "_categories_single";
+/*-------  3.14 Layout Tab                      --------*/
+@import "_layout-tab.scss";
+/*-------  3.15 Layout404                       --------*/
+@import "_layout404.scss";
+/*-------  3.16 Followers List                  --------*/
+@import "_followers_list.scss";
+/*-------  3.17 Messages Layout                 --------*/
+@import "_messages_layout.scss";
+/*-------  3.18 Create Topic                    --------*/
+@import "_btn-create-topic.scss";

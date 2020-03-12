@@ -1,0 +1,124 @@
+.tt-popup-settings{
+    position: fixed;
+    display: block;
+    margin: 0;
+    padding: 70px 30px;
+    background: #ffffff;
+    z-index: 14;
+    top: 0;
+    right: -150%;
+    height: 100%;
+    max-width: inherit;
+    text-align: left;
+    transition: right 0.3s linear;
+    &.column-open{
+        right: 0;
+    }
+    .tt-btn-col-close{
+        margin-bottom: 25px;
+        position: relative;
+        .tt-icon-title{
+            pointer-events: none;
+            position: relative;
+            top: -1px;
+            svg{
+                width: 17px;
+                height: 18px;
+                fill:#666f74;
+            }
+            margin-right: 30px;
+        }
+        .tt-icon-close{
+            pointer-events: none;
+            position: absolute;
+            right: 0px;
+            top: 35px;
+             svg{
+                width: 13px;
+                height: 12px;
+                fill:#70797d;
+                transition: fill $speed linear;
+            }
+        }
+        a{
+            display: block;
+            color: #303344;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 26px;
+            padding: 36px 0 22px;
+            border-bottom: 1px solid $border02;
+            transition: color $speed linear;
+            &:hover{
+                color: $default_color;
+                .tt-icon-close{
+                     svg{
+                         fill:$default_color2;
+                     }
+                }
+            }
+        }
+    }
+    .tt-form-upload{
+        padding-bottom: 27px;
+        .tt-avatar{
+            svg{
+                width: 40px;
+                height: 40px;
+            }
+        }
+        .btn{
+            min-width: 170px;
+        }
+    }
+    .form-default{
+        .form-group{
+            margin-bottom: 21px;
+            label:not(.error){
+                padding-bottom: 7px;
+                + .checkbox-group{
+                    margin-top: 7px;
+                }
+            }
+        }
+        .btn{
+            min-width: 160px;
+        }
+    }
+    .checkbox-group{
+        + .checkbox-group{
+            margin-top: 8px;
+        }
+    }
+    textarea.form-control{
+        height: 129px;
+        padding: 19px 12px 12px 28px;
+    }
+
+    @media (min-width: 451px){
+        width: 410px;
+    }
+    @media (max-width: 450px){
+        width: 320px;
+        padding-left: 20px;
+        padding-right: 20px;
+        .form-group{
+            .btn{
+                width: 100%;
+            }
+        }
+    }
+}
+.modal-filter{
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  display: block;
+  opacity: 0;
+  transition: background 0.2s linear;
+}

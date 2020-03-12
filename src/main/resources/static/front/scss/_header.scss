@@ -1,0 +1,152 @@
+/*
+	Header
+*/
+#tt-header{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color:#ffffff;
+	border-bottom: 1px solid #e2e7ea;
+	z-index: 17;
+	.tt-row > .col-auto{
+		min-height: 69px;
+	    align-items: center;
+	    display: flex;
+	}
+	> [class^="container"]{
+		@media (min-width: 1025px){
+			padding-left: 45px;
+			padding-right: 45px;
+		}
+		@media (max-width: 1024px){
+			padding-left: 25px;
+			padding-right: 25px;
+		}
+		@media (max-width: 575px){
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+	// additional styles for objects
+	.tt-logo{
+		& + *{
+			margin-left: 45px;
+		}
+		@media (max-width: 1229px){
+			& + *{
+				margin-left: 26px;
+			}
+		}
+		@media (max-width: 1024px){
+			& + *{
+				margin-left: 10px;
+			}
+		}
+		img{
+			max-width:36px;
+			height: auto;
+		}
+	}
+	.tt-desktop-menu{
+		& + *{
+			margin-left: 36px;
+		}
+		@media (max-width: 1229px){
+			& + *{
+				margin-left: 25px;
+			}
+			nav > ul > li > a{
+				padding-left: 7px;
+				padding-right: 7px;
+			}
+		}
+		@media (max-width: 767px){
+			& + *{
+				margin-left: 20px;
+			}
+		}
+	}
+	.tt-search{
+		@media (max-width: 1229px){
+			width: 250px;
+		}
+		@media (max-width: 767px){
+			width: 210px;
+		}
+		@media (max-width: 575px){
+			width: 142px;
+		}
+		@media (max-width: 440px){
+			width: 137px;
+		}
+		@media (max-width: 413px){
+			width: inherit;
+		}
+		@media (max-width: 413px){
+		&{
+			position: static;
+			.search-wrapper{
+				display: none;
+				display: -ms-flexbox;
+			      display: -webkit-flex;
+			      display: flex;
+			      -webkit-flex-direction: row;
+			      -ms-flex-direction: row;
+			      flex-direction: row;
+			      -webkit-flex-wrap: nowrap;
+			      -ms-flex-wrap: nowrap;
+			      flex-wrap: nowrap;
+			      -webkit-justify-content: flex-start;
+			      -ms-flex-pack: start;
+			      justify-content: flex-start;
+			      -webkit-align-content: flex-start;
+			      -ms-flex-line-pack: start;
+			      align-content: flex-start;
+			      -webkit-align-items: center;
+			      -ms-flex-align: center;
+			      align-items: center;
+			      background: #ffffff;
+			      position: absolute;
+			      z-index: -2;
+			      opacity: 0;
+			      width: 100vh;
+			      top: 15px;
+			      left: 0;
+			      .tt-search__close{
+			      	display: inline-block;
+			      }
+				}
+				&.tt-open-popup{
+					.search-wrapper{
+						top: 0;
+						height: 100%;
+						z-index: 3;
+	    				opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	.tt-account-btn{
+		@media (max-width: 767px){
+			[class^="btn"]{
+				background: transparent;
+				color: #182730;
+				padding-left: 9px;
+				padding-right: 9px;
+				&:not(:first-child){
+					margin-left: 0px;
+				}
+				&:hover{
+					color: #2172cd;
+				}
+			}
+		}
+		@media (max-width: 440px){
+			[class^="btn"]{
+				padding-left: 7px;
+				padding-right: 7px;
+			}
+		}
+	}
+}

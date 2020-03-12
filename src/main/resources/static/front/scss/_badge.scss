@@ -1,0 +1,149 @@
+.tt-badge{
+	font-size: 14px;
+    padding: 1px 7px 2px;
+    color: #ffffff;
+    line-height: 1;
+    font-weight: 500;
+    height: 25px;
+    border: none;
+    outline: none;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: $base-radius;
+    color: #ffffff;
+    &:not([class^="tt-color"]){
+    	color:#d7dadc;
+    	background-color: #d7dadc;
+    	color: #182730;
+    }
+    &.tt-color01{
+    	background-color:#2e3192;
+    }
+    &.tt-color02{
+    	background-color:#4436f8;
+    }
+    &.tt-color03{
+    	background-color:#3ebafa;
+    }
+    &.tt-color04{
+    	background-color:#777da7;
+    }
+    &.tt-color05{
+    	background-color:#f26522;
+    }
+    &.tt-color06{
+    	background-color:#464646;
+    }
+    &.tt-color07{
+    	background-color:#1cbbb4;
+    }
+    &.tt-color08{
+    	background-color:#f4555b;
+    }
+    &.tt-color09{
+    	background-color:#00746b;
+    }
+    &.tt-color10{
+    	background-color:#f69679;
+    }
+    &.tt-color11{
+    	background-color:#7e7b47;
+    }
+    &.tt-color12{
+        background-color:#5674b9;
+    }
+    &.tt-color13{
+        background-color:#3cb878;
+    }
+    &.tt-color14{
+        background-color:#92278f;
+    }
+    &.tt-color15{
+        background-color:#00a651;
+    }
+    &.tt-color16{
+        background-color:#a864a8;
+    }
+    &.tt-color17{
+        background-color:#92278f;
+    }
+    &.tt-color18{
+        background-color:#448ccb;
+    }
+    &.tt-color19{
+        background-color:#39b54a;
+    }
+    &.tt-color20{
+        background-color:#ed9731;
+    }
+    &.tt-color21{
+        background-color:#8781bd;
+    }
+
+}
+.tt-list-badge{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+	list-style: none;
+	padding: 0;
+	margin: -8px 0 0 -8px;
+	li{
+		margin-left: 8px;
+		margin-top: 8px;
+	}
+    &.tt-size-lg{
+        margin: -15px 0 0 -15px;
+        li{
+            margin: 15px 0 0 15px;
+        }
+        .tt-badge{
+            height: 39px;
+            font-size: 16px;
+            padding: 1px 14px 2px;
+            letter-spacing: 0.01em;
+        }
+    }
+}
+
+
+.nav-mytabs {
+  margin-top: 2rem;
+}
+
+.nav-mytabs li:not(:last-child) {
+  margin-right: 7px;
+}
+
+.nav-mytabs a {
+  position: relative;
+  top: 4px;
+  padding: 10px 25px;
+  border-radius: 2px 2px 0 0;
+  background: white;
+  color: black;
+  opacity: 0.7;
+  transition: all 0.1s ease-in-out;
+}
+
+.nav-mytabs a.active,
+.nav-mytabs a:hover {
+  opacity: 1;
+  top: 0;
+}
+
+.mytab-content {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+  border-radius: 0 4px 4px 4px;
+  background: white;
+}

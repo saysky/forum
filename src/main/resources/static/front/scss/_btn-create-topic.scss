@@ -1,0 +1,37 @@
+.tt-btn-create-topic{
+    display: inline-block;
+    position: fixed;
+    z-index: 23;
+    right: 15px;
+    @media (max-width: 1282px){
+        &.column-open{
+            z-index: 13;
+        }
+    }
+    .tt-icon{
+        transition: fill $speed linear;
+        fill:#ffffff;
+        svg{
+            width: 40px;
+            height: 40px;
+
+        }
+        &:hover{
+            fill:$default_color2;
+        }
+    }
+    @media (min-width: 1283px){
+        top: 14px;
+    }
+    @media (max-width: 1282px){
+        bottom: 20px;
+    }
+    &.column-open{
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5);
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+}

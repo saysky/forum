@@ -1,0 +1,33 @@
+/*
+    Page 404
+*/
+.tt-layout-404{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.01em;
+    .tt-title{
+        color: $default_color_title;
+        font-size: 18px;
+        line-height: 1.3;
+        font-weight: 500;
+        margin-top: 64px;
+        padding-bottom: 8px;
+    }
+    @media (min-width: 576px){
+        padding: 112px 0 17px 0;
+    }
+    @media (max-width: 575px){
+        padding: 17px 0 17px 0;
+        .tt-icon{
+            svg{
+                width: 200px;
+                height: 100px;
+            }
+        }
+    }
+}

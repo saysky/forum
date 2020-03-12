@@ -1,0 +1,98 @@
+/*
+    default tabs
+*/
+.tt-tab-wrapper{
+    .nav-tabs{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border-bottom:1px solid $border;
+        .nav-item{
+            a{
+                color: $default_color2;
+                display: inline-block;
+                transition: color 0.2s linear;
+                font-weight: 500;
+                span{
+                    padding-top: 22px;
+                    padding-bottom: 23px;
+                    display: inline-block;
+                    position: relative;
+                    letter-spacing: 0.01em;
+                    &:after{
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        background-color: transparent;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 2px;
+                        transition: background-color 0.2s linear;
+                    }
+                }
+                &:hover{
+                    color: $default_color;
+                }
+                &.active{
+                    color: $default_color;
+                    span{
+                        &:after{
+                             background-color: $default_color;
+                        }
+                    }
+                }
+            }
+            &:first-child{
+                a{
+                    padding-left: 0;
+                }
+            }
+            &:last-child{
+                a{
+                    padding-right: 0;
+                }
+            }
+            @media (min-width: 992px){
+                padding-left: 14px;
+                padding-right: 14px;
+                &:first-child{
+                    padding-left: 0;
+                }
+            }
+            @media (max-width: 991px){
+                padding-left: 12px;
+                padding-right: 12px;
+                &:first-child{
+                    padding-left: 0;
+                }
+            }
+            @media (max-width: 767px){
+              &.tt-hide-md{
+                display: none;
+              }
+            }
+            @media (max-width: 575px){
+                &.tt-hide-xs{
+                    display: none;
+               }
+            }
+        }
+    }
+    .tab-content{
+        .tab-pane{
+            &:not(.active){
+                display: none;
+            }
+            &:not(.tt-indent-none){
+                padding: 40px 0 0 0;
+            }
+        }
+    }
+}
