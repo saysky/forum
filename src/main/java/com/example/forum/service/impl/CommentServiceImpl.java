@@ -68,10 +68,22 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> findByPostId(Long postId) {
-        QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("post_id", postId);
-        queryWrapper.orderByDesc("like_count desc, create_time");
-        return findAll(queryWrapper);
+        return commentMapper.findByPostId(postId);
+    }
+
+    @Override
+    public void readAllByUserId(Long userId) {
+        commentMapper.readAllByUserId(userId);
+    }
+
+    @Override
+    public Integer countNotReadByUserId(Long userId) {
+        return commentMapper.countNotReadByUserId(userId);
+    }
+
+    @Override
+    public void updateIsReadByPostIdAndUserId(Long postId, Long userId) {
+        commentMapper.updateIsReadByPostIdAndUserId(postId, userId);
     }
 
 

@@ -52,8 +52,6 @@ public class FrontPostController extends BaseController {
      *
      * @param pageNumber
      * @param pageSize
-     * @param sort
-     * @param order
      * @return
      */
     @GetMapping("/post/list")
@@ -62,9 +60,7 @@ public class FrontPostController extends BaseController {
                                    @RequestParam(value = "type", defaultValue = "new") String type,
                                    @RequestParam(value = "id", required = false) Long id,
                                    @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
-                                   @RequestParam(value = "size", defaultValue = "10") Integer pageSize,
-                                   @RequestParam(value = "sort", defaultValue = "createTime") String sort,
-                                   @RequestParam(value = "order", defaultValue = "desc") String order) {
+                                   @RequestParam(value = "size", defaultValue = "10") Integer pageSize) {
         User loginUser = getLoginUser();
         Page<Post> postPage = null;
         Page page = PageUtil.initMpPage(pageNumber, pageSize, "createTime", "desc");
@@ -93,7 +89,6 @@ public class FrontPostController extends BaseController {
 
         // 获得列表
         postPage = postService.findPostByCondition(condition, page);
-//        List<Post> postList = postPage.getRecords();
         return JsonResult.success("查询成功", postPage);
     }
 
@@ -126,7 +121,7 @@ public class FrontPostController extends BaseController {
      */
     @GetMapping("/post/{id}")
     public String postDetails(@PathVariable("id") Long id, Model model) {
-        // 商品
+        // 帖子
         Post post = postService.get(id);
         if (post == null) {
             return renderNotFound();
@@ -147,13 +142,16 @@ public class FrontPostController extends BaseController {
 
         // 评论列表
         List<Comment> commentList = commentService.findByPostId(id);
-        for (Comment comment : commentList) {
-            comment.setUser(userService.get(comment.getUserId()));
-        }
         model.addAttribute("commentList", CommentUtil.getComments(commentList));
 
         // 访问量加1
         postService.updatePostView(id);
+
+        // 标记该文章所有的评论为已读
+        User loginUser = getLoginUser();
+        if(loginUser != null) {
+            commentService.updateIsReadByPostIdAndUserId(id, loginUser.getId());
+        }
         return "home/post";
     }
 

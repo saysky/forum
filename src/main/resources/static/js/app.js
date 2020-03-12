@@ -229,7 +229,7 @@ function push(status) {
                 if(status == 1) {
                     showMsg("暂存成功", "success", 2000);
                 } else {
-                    showMsgAndRedirect("发布成功", "success", 1000, "/admin/post");
+                    showMsgAndRedirect("发布成功", "success", 1000, "/");
                 }
             } else {
                 showMsg(data.msg, "success", 2000);

@@ -42,8 +42,8 @@ public class RoleController {
     @GetMapping
     public String roles(@RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
                         @RequestParam(value = "size", defaultValue = "10") Integer pageSize,
-                        @RequestParam(value = "sort", defaultValue = "id") String sort,
-                        @RequestParam(value = "order", defaultValue = "asc") String order, Model model) {
+                        @RequestParam(value = "sort", defaultValue = "level") String sort,
+                        @RequestParam(value = "order", defaultValue = "desc") String order, Model model) {
         //角色列表
         Page page = PageUtil.initMpPage(pageNumber, pageSize, sort, order);
 

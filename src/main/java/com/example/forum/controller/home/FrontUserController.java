@@ -72,7 +72,7 @@ public class FrontUserController extends BaseController {
         PostQueryCondition condition = new PostQueryCondition();
         condition.setUserId(userId);
         Page<Post> postPage = postService.findPostByCondition(condition, page);
-        model.addAttribute("posts", postPage.getRecords());
+        model.addAttribute("posts", postPage);
         model.addAttribute("user", user);
         return "home/user_post";
     }

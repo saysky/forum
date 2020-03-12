@@ -118,7 +118,7 @@ function loadPostList(page, type, isAppend) {
                     return;
                 }
             } else {
-                if(data.result.current == data.result.pages) {
+                if (data.result.current == data.result.pages) {
                     $('#load-more-div').hide();
                     $('#no-data').show();
                 }
@@ -338,3 +338,28 @@ $('.post-like').click(function () {
         }
     });
 });
+
+/**
+ * 加载未读数量
+ */
+function loadNotReadCommentCount() {
+    $.ajax({
+        type: 'GET',
+        url: '/comment/notReadCount',
+        async: false,
+        success: function (data) {
+            if (data.code == 1) {
+                const count = data.result;
+                if (count != 0) {
+                    $('#notReadCount').text(count);
+                }
+            } else {
+                showMsg(data.msg, "error", 1000);
+            }
+        }
+    });
+}
+loadNotReadCommentCount();
+
+
+

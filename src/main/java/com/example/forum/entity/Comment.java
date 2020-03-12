@@ -63,11 +63,15 @@ public class Comment extends BaseEntity {
 
 
     /**
+     * 是否阅读：1是，0否
+     */
+    private Integer isRead;
+
+    /**
      * 回帖人
      */
     @TableField(exist = false)
     private User user;
-
 
     /**
      * 当前回帖下的所有子回帖

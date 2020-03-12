@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -82,7 +83,7 @@ public class PostController extends BaseController {
         condition.setPostType(PostTypeEnum.POST_TYPE_POST.getValue());
         condition.setPostStatus(status);
         // 管理员可以查看所有用户的，非管理员只能看到自己的帖子
-        if(!loginUserIsAdmin()) {
+        if (!loginUserIsAdmin()) {
             condition.setUserId(loginUserId);
         }
 
@@ -111,20 +112,30 @@ public class PostController extends BaseController {
      */
     @GetMapping(value = "/new")
     public String newPost(Model model) {
+        User loginUser = getLoginUser();
         //所有分类
         List<Category> allCategories = categoryService.findAll();
+        // 普通用户不显示驾校服务板块
+        Iterator<Category> it = allCategories.iterator();
+        if (Objects.equals(loginUser.getRole(), RoleEnum.USER.getValue())) {
+            while (it.hasNext()) {
+                Category c = it.next();
+                if ("驾校服务".equals(c.getCateName())) {
+                    it.remove();
+                }
+            }
+        }
         model.addAttribute("categories", allCategories);
         return "admin/admin_post_new";
     }
 
 
-
     /**
      * 添加/更新文章
      *
-     * @param post    Post实体
+     * @param post   Post实体
      * @param cateId 分类ID
-     * @param tags 标签列表
+     * @param tags   标签列表
      */
     @PostMapping(value = "/save")
     @ResponseBody
@@ -234,7 +245,6 @@ public class PostController extends BaseController {
     }
 
 
-
     /**
      * 处理删除文章的请求
      *
@@ -313,6 +323,7 @@ public class PostController extends BaseController {
      */
     @GetMapping(value = "/edit")
     public String editPost(@RequestParam("id") Long postId, Model model) {
+        User loginUser = getLoginUser();
         Post post = postService.get(postId);
         basicCheck(post);
 
@@ -328,6 +339,16 @@ public class PostController extends BaseController {
 
         //所有分类
         List<Category> allCategories = categoryService.findAll();
+        // 普通用户不显示驾校服务板块
+        Iterator<Category> it = allCategories.iterator();
+        if (Objects.equals(loginUser.getRole(), RoleEnum.USER.getValue())) {
+            while (it.hasNext()) {
+                Category c = it.next();
+                if ("驾校服务".equals(c.getCateName())) {
+                    it.remove();
+                }
+            }
+        }
         model.addAttribute("categories", allCategories);
         return "admin/admin_post_edit";
     }

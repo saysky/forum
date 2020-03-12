@@ -6,11 +6,13 @@ import com.example.forum.entity.Comment;
 import com.example.forum.entity.Post;
 import com.example.forum.entity.User;
 import com.example.forum.dto.JsonResult;
+import com.example.forum.enums.CommentIsReadEnum;
 import com.example.forum.service.CommentService;
 import com.example.forum.service.PostService;
 import com.example.forum.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -74,6 +76,12 @@ public class FrontCommentController extends BaseController {
                 comment.setCommentParent(parentComment.getId());
                 comment.setAcceptUserId(parentComment.getUserId());
                 comment.setPathTrace(parentComment.getPathTrace() + parentComment.getId() + "/");
+                // 如果回复的是自己的回复，设置已读
+                if(Objects.equals(loginUser.getId(), parentComment.getUserId())) {
+                    comment.setIsRead(CommentIsReadEnum.READ.getCode());
+                } else {
+                    comment.setIsRead(CommentIsReadEnum.NOT_READ.getCode());
+                }
             }
         } else {
             // 回复帖子
@@ -81,11 +89,18 @@ public class FrontCommentController extends BaseController {
             comment.setCommentParent(0L);
             comment.setAcceptUserId(post.getUserId());
             comment.setPathTrace("/");
+            // 如果回复的是自己的文章，设置已读
+            if(Objects.equals(loginUser.getId(), postId)) {
+                comment.setIsRead(CommentIsReadEnum.READ.getCode());
+            } else {
+                comment.setIsRead(CommentIsReadEnum.NOT_READ.getCode());
+            }
         }
         comment.setUserId(loginUser.getId());
         comment.setPostId(postId);
         comment.setCreateTime(new Date());
         comment.setUpdateTime(new Date());
+
         commentService.insert(comment);
 
         // 修改评论数
@@ -128,4 +143,23 @@ public class FrontCommentController extends BaseController {
         commentService.update(comment);
         return JsonResult.success();
     }
+
+
+    /**
+     * 未读评论数量
+     *
+     * @return
+     */
+    @GetMapping("/comment/notReadCount")
+    @ResponseBody
+    public JsonResult notReadCount() {
+        User user = getLoginUser();
+        if (user == null) {
+            return JsonResult.success("查询成功", 0);
+        }
+        Integer count = commentService.countNotReadByUserId(user.getId());
+        return JsonResult.success("查询成功", count);
+    }
+
+
 }

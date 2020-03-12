@@ -122,12 +122,12 @@ public class CommentController extends BaseController {
                                @RequestParam(value = "keywords", defaultValue = "") String keywords,
                                @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
                                @RequestParam(value = "size", defaultValue = "15") Integer pageSize,
-                               @RequestParam(value = "sort", defaultValue = "createTime") String sort,
-                               @RequestParam(value = "order", defaultValue = "desc") String order) {
+                               @RequestParam(value = "sort", defaultValue = "is_read") String sort,
+                               @RequestParam(value = "order", defaultValue = "asc") String order) {
         User user = getLoginUser();
         Page page = PageUtil.initMpPage(pageNumber, pageSize, sort, order);
         Comment condition = new Comment();
-        condition.setUserId(user.getId());
+        condition.setAcceptUserId(user.getId());
         condition.setCommentContent(keywords);
         Page<Comment> comments = commentService.findAll(page, new QueryCondition<>(condition));
         List<Comment> commentList = comments.getRecords();
@@ -138,7 +138,7 @@ public class CommentController extends BaseController {
         model.addAttribute("keywords", keywords);
         model.addAttribute("sort", sort);
         model.addAttribute("order", order);
-        return "admin/admin_comment";
+        return "admin/admin_comment_receive";
     }
 
     /**
@@ -223,6 +223,19 @@ public class CommentController extends BaseController {
         //3、删除
         commentService.batchDelete(ids);
         return JsonResult.success("删除成功");
+    }
+
+    /**
+     * 全部标记为已读
+     *
+     * @return
+     */
+    @PostMapping(value = "/readAll")
+    @ResponseBody
+    public JsonResult readAll() {
+        User user = getLoginUser();
+        commentService.readAllByUserId(user.getId());
+        return JsonResult.success("标记成功");
     }
 
     /**

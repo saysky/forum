@@ -20,6 +20,9 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/car_forum?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
     username: root
     password: 123456
+    test-while-idle: true
+    time-between-eviction-runs-millis: 300000
+    min-evictable-idle-time-millis: 1800000
   thymeleaf:
     mode: HTML5
     cache: false

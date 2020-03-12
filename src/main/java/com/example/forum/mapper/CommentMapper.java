@@ -37,13 +37,6 @@ public interface CommentMapper extends BaseMapper<Comment> {
      */
     Integer deleteByAcceptUserId(Long userId);
 
-    /**
-     * 获得某个ip用户最新的回帖
-     *
-     * @param ip IP地址
-     * @return 回帖
-     */
-    Comment getLatestCommentByIP(String ip);
 
     /**
      * 获得子回帖Id列表
@@ -54,14 +47,29 @@ public interface CommentMapper extends BaseMapper<Comment> {
     List<Long> selectChildCommentIds(@Param("pathTrace") String pathTrace);
 
     /**
-     * 获得某个用户最新收到的回帖
-     *
-     * @param userId 收到回帖的用户
-     * @param limit  查询数量
+     * 根据用户ID，标记所有收到的回帖为已读
+     * @param userId
+     */
+    void readAllByUserId(Long userId);
+
+    /**
+     * 根据文章ID获得评论列表
+     * @param postId
      * @return
      */
-    List<Comment> getLatestCommentByAcceptUser(@Param("userId") Long userId,
-                                               @Param("limit") Integer limit);
+    List<Comment> findByPostId(Long postId);
 
+    /**
+     * 统计某个用户未读数量
+     * @return
+     */
+    Integer countNotReadByUserId(Long userId);
+
+    /**
+     * 更新某个用户在某篇文章下的收到的评论为已读
+     * @param postId
+     * @param userId
+     */
+    void updateIsReadByPostIdAndUserId(@Param("postId") Long postId, @Param("userId") Long userId);
 }
 
