@@ -1,7 +1,7 @@
 基于 SpringBoot + MyBatis + Thymeleaf 实现的博客/论坛系统。
 <br/>
 详细地址：[https://liuyanzhao.com/10206.html](https://liuyanzhao.com/10206.html)
-
+同版论坛地址[https://github.com/saysky/forum](https://github.com/saysky/forum)
 
 
 ## 主要技术
@@ -22,7 +22,7 @@
 只有配置了SMTP，才能发送邮件，主要用于找回密码功能
 1. 获取授权码 <br/>
     - 推荐使用QQ邮箱，打开QQ邮箱，点击【设置】-> 【账户】，往下翻，找到【POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务】。
-    开启【POP3/SMTP服务】，点击旁边的【启用】按钮。 点击【生成授权码】获取授权码，如 vtvhcjsacnuubdaj。
+    开启【POP3/SMTP服务】，点击旁边的【启用】按钮。 点击【生成授权码】获取授权码，如 授权码如vtvhcjsacnuutest。
     ![image](img/smtp.png)
 
     - 修改配置文件 <br/>
@@ -46,7 +46,7 @@
 
 2. 表结构
 - 表名称按顺序分别如下：
-- 分类表、评论表、友情链接表、权限表、文章表、文章和分类关联表、文章和标签关联表、角色表、角色和权限关联表、标签表、用户表、用户和角色关联表
+- 分类表、评论表、友情链接表、权限表、文章表、文章和分类关联表、文章和标签关联表、角色表、角色和权限关联表、标签表、用户表、用户和角色关联表 <br/>
 ![image](img/db.png)
 
 ## 运行预览
