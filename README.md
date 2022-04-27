@@ -1,3 +1,7 @@
+## 博主开发的其他博客或论坛项目全部在这里
+**[https://liuyanzhao.com/shop.html?k=博客](https://liuyanzhao.com/shop.html?k=博客)**   <br/>
+**[https://liuyanzhao.com/shop.html?k=论坛](https://liuyanzhao.com/shop.html?k=论坛)** <br/>
+- -------------------------------------------------------------------------------
 基于 SpringBoot + MyBatis + Thymeleaf 实现的博客/论坛系统。
 <br/>
 详细地址：[https://liuyanzhao.com/10206.html](https://liuyanzhao.com/10206.html)
