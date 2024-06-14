@@ -102,4 +102,3 @@ public class Post extends BaseEntity {
         return RelativeDateFormat.format(getCreateTime());
     }
 
-}

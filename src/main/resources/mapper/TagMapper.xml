@@ -74,4 +74,3 @@
         LIMIT #{limit}
     </select>
 
-</mapper>

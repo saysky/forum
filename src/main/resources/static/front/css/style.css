@@ -7868,4 +7868,3 @@ html.ie.gecko body.modal-open {
   .tt-btn-create-topic.column-open {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5);
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg); }
